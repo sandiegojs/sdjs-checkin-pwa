@@ -1,0 +1,9 @@
+{
+  "name": "Check in app",
+  "short_name": "Chkin",
+  "theme_color": "#373b44",
+  "background_color": "white",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "https://sdjs-checkin-pwa.herokuapp.com/"
+}

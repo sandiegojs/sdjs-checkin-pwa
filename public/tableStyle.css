@@ -1,0 +1,20 @@
+td {
+    border: 2px solid black;
+    margin-top: 1%;
+    min-width: 4em;
+}
+
+.row{
+    display: flex;
+    justify-self: center;
+}
+
+.container{ 
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+body{
+    text-align: center;
+    
+}

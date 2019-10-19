@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Check-In</title>
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <form onSubmit="handleCheckin(event)">
+            <div>
+                <h1>Welcome to the Meetup!</h1>
+                <p class="banner">Please Sign In</p>
+            </div>
+
+            <div>
+                <select id='event_dropdown'>
+                    <option value="">Select your event</option>
+                    <option value="1">San Diego Tech Coffee</option>
+                    <option value="2">Blockchain & Brews</option>
+                    <option value="3">Robot Framework San Diego</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text" required />
+            </div>
+
+            <div class="field">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" required />
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" required />
+            </div>
+
+            <div class="field">
+                <label for="phone-number">Phone Number</label>
+                 <input id="phone-number" type='tel'  placeholder="(000) 000-0000" maxlength="14"/>
+            </div>
+
+            <div>
+                <p id="disclaimer">
+                    * By submitting your phone number, you agree to receive text messages from
+                    SDJS. Standard text message rates may apply.
+                </p>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="image-wrapper">
+        <a href="https://www.sdcs.io/" target="_blank">
+            <img id='logo' src="images/sdcs_logo.png" alt="San Diego Code School logo" />
+        </a>
+        <p>Made by awesome students at San Diego Code School.</p>
+    </div>
+    <script src="main.js"></script>
+    <link rel="manifest" href="./manifest.json" />
+    <script src="sw.js"></script>
+</body>
+
+</html>
