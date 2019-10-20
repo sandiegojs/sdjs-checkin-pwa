@@ -1,9 +1,23 @@
 import React, {useCallback, useState} from "react";
 import ReactDOM from "react-dom";
 
+function formatPhoneNumber(val) {
+  return val
+    .replace(/\D/g, '')
+    .replace(/(\d{1,3})(\d{1,3})?(\d{1,4})?/g, function(txt, firstSet, secondSet, thirdSet) {
+      if (thirdSet) {
+        return `(${firstSet}) ${secondSet}-${thirdSet}`;
+      } else if (secondSet) {
+        return `(${firstSet}) ${secondSet}`;
+      } else if (firstSet) {
+        return `(${firstSet})`;
+      }
+    });
+}
+
 function App(props) {
 
-  const [system, updateSystem] = useState({
+  const [formData, updateFormData] = useState({
     eventId: "",
     eventTitle: "",
     firstName: "",
@@ -12,10 +26,10 @@ function App(props) {
     phoneNumber: ""
   })
 
-  const handleUpdateSystem = useCallback((e) => {
+  const handleUpdateFormData = useCallback((e) => {
     const {name, value, textContent} = e.target
-    updateSystem(currentSystemState => ({
-      ...currentSystemState,
+    updateFormData(currentFormData => ({
+      ...currentFormData,
       [name]: value
     }))
   }, [])
@@ -24,17 +38,26 @@ function App(props) {
     const {name, value, options, selectedIndex} = e.target
     const eventTitle = options[selectedIndex].textContent
 
-    updateSystem(currentSystemState => ({
-      ...currentSystemState,
+    updateFormData(currentFormData => ({
+      ...currentFormData,
       eventId: value,
       eventTitle
+    }))
+  }, [])
+
+  const handlePhoneNumber = useCallback((e) => {
+    const {name, value} = e.target
+
+    updateFormData(currentFormData => ({
+      ...currentFormData,
+      phoneNumber: formatPhoneNumber(value)
     }))
   }, [])
 
   const handleCheckin = useCallback((e) => {
       e.preventDefault();
 
-      const {eventId, eventTitle, email, firstName, lastName, phoneNumber} = system
+      const {eventId, eventTitle, email, firstName, lastName, phoneNumber} = formData
 
       const attendeeInfo = {
         email,
@@ -60,8 +83,7 @@ function App(props) {
           console.error('Error:', error);
         });
 
-  }, [system]);
-
+  }, [formData]);
 
   return (
     <main>
@@ -83,22 +105,22 @@ function App(props) {
 
           <div className="field">
               <label htmlFor="first-name">First Name</label>
-              <input name="firstName" id="first-name" type="text" required onChange={handleUpdateSystem} />
+              <input name="firstName" id="first-name" type="text" required onChange={handleUpdateFormData} />
           </div>
 
           <div className="field">
               <label htmlFor="last-name">Last Name</label>
-              <input name="lastName" id="last-name" type="text" required onChange={handleUpdateSystem} />
+              <input name="lastName" id="last-name" type="text" required onChange={handleUpdateFormData} />
           </div>
 
           <div className="field">
               <label htmlFor="email">Email</label>
-              <input name="email" id="email" type="email" required onChange={handleUpdateSystem} />
+              <input name="email" id="email" type="email" required onChange={handleUpdateFormData} />
           </div>
 
           <div className="field">
               <label htmlFor="phone-number">Phone Number</label>
-               <input name="phoneNumber" id="phone-number" type='tel'  placeholder="(000) 000-0000" maxLength="14" onChange={handleUpdateSystem} />
+               <input value={formData.phoneNumber} name="phoneNumber" id="phone-number" type='tel'  placeholder="(000) 000-0000" maxLength="14" onChange={handlePhoneNumber} />
           </div>
 
           <div>
