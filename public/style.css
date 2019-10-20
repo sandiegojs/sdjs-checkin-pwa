@@ -9,10 +9,10 @@ body {
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #4d75cf,
+    #000000,
     #1884c3
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-family: Arial, Helvetica, sans-serif;
+  ); 
+  font-family: 'Nunito Sans', sans-serif;;
   color: #01032e;
 }
 .container {
@@ -20,7 +20,10 @@ body {
   margin: 10px auto 0 auto;
   padding: 10px;
   background: white;
-  border-radius: 4%;
+  border-style: solid;
+  border-color: #4286f4;
+  border-width: 1px;
+  border-radius: 4px;
   text-align: center;
   min-height: 400px;
 }
@@ -43,6 +46,10 @@ p {
   font-size: 10pt;
 }
 
+#made-by-text {
+  color: rgb(228, 228, 228);
+}
+
 #disclaimer {
   font-size: 7.5pt;
   width: 20em;
@@ -52,12 +59,13 @@ p {
 
 button {
   margin: 10px 0;
-  border: solid #b7c65a 1px;
+  border: solid #c2c2c2 1px;
   border-radius: 3px;
   padding: 7px;
-  background: rgb(224, 251, 80);
+  background: rgb(253, 201, 132);
   font-size: 14px;
   outline: none;
+  color: black;
 }
 
 @media (max-width: 600px) {
@@ -65,6 +73,7 @@ button {
     width: 90vw;
     text-align: center;
     font-size: 90%;
+    border-radius: 4px;
   }
   input {
     display: block;
@@ -77,18 +86,19 @@ input {
   margin: auto;
   padding: 8px;
   font-size: 16px;
-  border-width: 3px;
+  border-width: 1px;
   border-color: #1884c3;
   background-color: #ffffff;
   color: #000000;
   border-style: solid;
   border-radius: 4px;
-  box-shadow: 1px 1px 7px rgba(32, 128, 182, 0.75);
+  box-shadow: 1px 1px 3px rgba(32, 128, 182, 0.75);
   text-shadow: 0px 0px 0px rgba(66, 66, 66, 0.75);
 }
 input:focus {
   outline: none;
-  border-color: rgb(224, 251, 80);
+  border-color: rgba(32, 128, 182, 0.75);
+  box-shadow: none;
 }
 
 .image-wrapper {
@@ -113,13 +123,14 @@ input:focus {
   margin-bottom: 10px;
   padding: 10px 0px;
   font-size: 16px;
-  border-width: 3px;
+  padding: 3px;
+  border-width: 1px;
   border-color: #1884c3;
+  border-radius: 4px;
   background-color: #ffffff;
   color: #000000;
   border-style: solid;
-  border-radius: 4px;
-  box-shadow: 1px 1px 7px rgba(32, 128, 182, 0.75);
+  box-shadow: 1px 1px 3px rgba(32, 128, 182, 0.75);
   text-shadow: 0px 0px 0px rgba(66, 66, 66, 0.75);
   max-width: 189px;
   height: 40px;
@@ -127,7 +138,8 @@ input:focus {
 
 #event_dropdown:focus {
   outline: none;
-  border-color: rgb(224, 251, 80);
+  border-color: rgba(32, 128, 182, 0.75);
+  box-shadow: none;
 }
 
 #people {
